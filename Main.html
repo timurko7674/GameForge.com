@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gaming Browser</title>
+    <link id="themeStylesheet" rel="stylesheet" href="light.css">
+    <style>
+        body {
+            background-image: url('default-background.jpg');
+            background-size: cover;
+            /* Other background styles */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button onclick="loginWithGoogle()">Login with Google</button>
+        <button onclick="loginWithOutlook()">Login with Outlook</button>
+        <button onclick="toggleTheme()">Toggle Theme</button>
+        <input type="file" id="bgImageInput" accept="image/*" onchange="setBackgroundFromUpload(event)">
+    </header>
+    <main>
+        <!-- Main content of your gaming browser -->
+    </main>
+    <script>
+        function loginWithGoogle() {
+            // Implement OAuth flow for Google authentication
+        }
+
+        function loginWithOutlook() {
+            // Implement OAuth flow for Outlook authentication
+        }
+
+        function toggleTheme() {
+            const stylesheet = document.getElementById('themeStylesheet');
+            if (stylesheet.href.includes('light.css')) {
+                stylesheet.href = 'dark.css';
+            } else {
+                stylesheet.href = 'light.css';
+            }
+        }
+
+        function setBackgroundFromUpload(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.body.style.backgroundImage = `url(${e.target.result})`;
+            };
+            reader.readAsDataURL(file);
+        }
+    </script>
+</body>
+</html>
